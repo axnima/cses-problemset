@@ -1,34 +1,22 @@
 #include <bits/stdc++.h>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
+
 #define ll long long
 #define int long long
-int mod=1e9+7;
+#define mod 1000000007
 
- 
-int32_t main() 
-{   
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    int n;
-    cin>>n;
-    int ar[n+1]={0};
-    for(int i=0;i<=n;i++)
-    {
-        for(int j=max(0ll,i-6);j<i;j++)
-        {   
-            //cout<<j<<" "<<ar[j]<<"\n";
-            if(j==0)
-            {
-                ar[i]+=1;
-                continue;
-            }
-            ar[i]+=ar[j]%mod;
+int32_t main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int target;
+    cin >> target;
+    vector<int> ways(target + 1, 0);
+    ways[0] = 1;
+    for(int i = 1; i <= target; i++) {
+        for(int j = 1; j <= 6; j++) {
+            if(i - j >= 0) ways[i] = (ways[i] + ways[i - j]) % mod;
         }
-        ar[i]=ar[i]%mod;
     }
-    cout<<ar[n]<<"\n";
-    
+    cout << ways[target] << "\n";
     return 0;
-}
-
