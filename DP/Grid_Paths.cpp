@@ -1,99 +1,64 @@
 #include <bits/stdc++.h>
-#include<algorithm>
 using namespace std;
-#define ll long long
 #define int long long
 const int mod=1e9+7;
 
-
-int32_t main() 
-{   
+int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     int n;
     cin>>n;
     int ar[n][n];
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
-        {   
+    for (int i=0;i<n;i++) {
+        for (int j=0;j<n;j++) {
             char c;
             cin>>c;
-            if(c=='.')
-            {
+            if (c=='.') {
                 ar[i][j]=0;
             }
-            else
-            {
+            else {
                 ar[i][j]=-1;
             }
-            //cout<<ar[i][j];
         }
-        //cout<<"\n";
     }
-    if(ar[0][0]!=-1)
-    {
+    if (ar[0][0]!=-1) {
         ar[0][0]=1;
     }
-    else
-    {
+    else {
         cout<<0<<"\n";
         return 0;
     }
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
-        {   
-            if(i==0 && j==0)
-            {
+    for (int i=0;i<n;i++) {
+        for (int j=0;j<n;j++) {
+            if (i==0 && j==0) {
                 ar[i][j]=1;
                 continue;
             }
-            if(ar[i][j]==-1)
-            {
+            if (ar[i][j]==-1) {
                 continue;
             }
-            else if(i==0 && j>0)
-            {   
-                
+            else if (i==0 && j>0) {
                 ar[i][j]+=ar[i][j-1];
-                
             }
-            else if(j==0 && i>0)
-            {
+            else if (j==0 && i>0) {
                 ar[i][j]+=ar[i-1][j];
             }
-            else
-            {
-                if(ar[i-1][j]!=-1)
-                {
+            else {
+                if (ar[i-1][j]!=-1) {
                     ar[i][j]+=ar[i-1][j];
                 }
-                if(ar[i][j-1]!=-1)
-                {
+                if (ar[i][j-1]!=-1) {
                     ar[i][j]+=ar[i][j-1];
                 }
-                
             }
             ar[i][j]=ar[i][j]%mod;
         }
     }
-    /*
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
-        {   
-            cout<<ar[i][j];
-        }
-        cout<<"\n";
-    }
-    */
-    if(ar[n-1][n-1]==-1)
-    {
+
+    if (ar[n-1][n-1]==-1) {
         cout<<0<<"\n";
         return 0;
     }
     cout<<ar[n-1][n-1];
     return 0;
 }
-
