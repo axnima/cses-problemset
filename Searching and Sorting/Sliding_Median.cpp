@@ -1,53 +1,36 @@
 #include <bits/stdc++.h>
-#include<algorithm>
 using namespace std;
-#define ll long long
 #define int long long
-const int mod=1e9+7;
+const int mod = 1e9 + 7;
 
-
-int32_t main() 
-{   
+int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int n,k;
-    cin>>n>>k;
-    bool even=false;
-    if(k&1==0)
-    {
-        even=true;
+    int n, k;
+    cin >> n >> k;
+    bool even = false;
+    if (k & 1 == 0) {
+        even = true;
     }
     int ar[n];
-    for(int i=0;i<n;i++)
-    {
-        cin>>ar[i];
+    for (int i = 0; i < n; i++) {
+        cin >> ar[i];
     }
     set<int> s;
-    for(int i=0;i<k;i++)
-    {
+    for (int i = 0; i < k; i++) {
         s.insert(ar[i]);
-        if(even)
-        {
+        if (even) {
 
-        }
-        else
-        {
-
+        } else {
         }
     }
-    for(int i=k;i<n-k+1;i++)
-    {
-        s.erase(ar[i-k]);
+    for (int i = k; i < n - k + 1; i++) {
+        s.erase(ar[i - k]);
         s.insert(ar[i]);
-        if(even)
-        {
+        if (even) {
 
-        }
-        else
-        {
-
+        } else {
         }
     }
     return 0;
 }
-

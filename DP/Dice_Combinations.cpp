@@ -13,7 +13,8 @@ int32_t main() {
     ways[0] = 1;
     for (int i = 1; i <= target; i++) {
         for (int j = 1; j <= 6; j++) {
-            if (i - j >= 0) ways[i] = (ways[i] + ways[i - j]) % mod;
+            if (i - j >= 0)
+                ways[i] = (ways[i] + ways[i - j]) % mod;
         }
     }
     cout << ways[target] << "\n";

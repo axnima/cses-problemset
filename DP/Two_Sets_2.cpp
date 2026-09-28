@@ -6,7 +6,7 @@ const int mod = 1e9 + 7;
 int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    const int mx = (500 * 501 )/ 2;
+    const int mx = (500 * 501) / 2;
     int dp[mx + 1000];
     int n;
     cin >> n;

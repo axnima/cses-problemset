@@ -9,15 +9,17 @@ int32_t main() {
     int n, m;
     cin >> n >> m;
     vector<int> a(n), b(m);
-    for (auto &i : a) cin >> i;
-    for (auto &j : b) cin >> j;
+    for (auto &i : a)
+        cin >> i;
+    for (auto &j : b)
+        cin >> j;
     vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (a[i - 1] == b[j - 1]) {
                 dp[i][j] = dp[i - 1][j - 1] + 1;
-            }
-            else dp[i][j] = max(dp[i - 1][j - 1] , max(dp[i - 1][j] , dp[i][j - 1]));
+            } else
+                dp[i][j] = max(dp[i - 1][j - 1], max(dp[i - 1][j], dp[i][j - 1]));
         }
     }
     cout << dp[n][m] << "\n";
@@ -29,18 +31,17 @@ int32_t main() {
             ans.push_back(a[l - 1]);
             l--;
             r--;
-        }
-        else {
+        } else {
             if (dp[l][r - 1] > dp[l - 1][r]) {
                 r--;
-            }
-            else {
+            } else {
                 l--;
             }
         }
     }
-    reverse(ans.begin() , ans.end());
-    for (auto i : ans) cout << i << " ";
+    reverse(ans.begin(), ans.end());
+    for (auto i : ans)
+        cout << i << " ";
     cout << "\n";
     return 0;
 }

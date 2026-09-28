@@ -1,40 +1,31 @@
 #include <bits/stdc++.h>
-#include<algorithm>
 using namespace std;
-#define ll long long
 #define int long long
-int mod=1e9+7;
- 
-int32_t main() 
-{   
+int mod = 1e9 + 7;
+
+int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int n,x;
-    cin>>n>>x;
+    int n, x;
+    cin >> n >> x;
     vector<int> v(n);
 
-    for(int i=0;i<n;i++)
-    {
-        cin>>v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    sort(v.begin(),v.end());
-    int low=0;
-    int hi=n-1;
-    int cnt=0;
-    while(low<hi)
-    {
-        if(v[low]+v[hi]<=x)
-        {
+    sort(v.begin(), v.end());
+    int low = 0;
+    int hi = n - 1;
+    int cnt = 0;
+    while (low < hi) {
+        if (v[low] + v[hi] <= x) {
             cnt++;
             low++;
             hi--;
-        }
-        else 
-        {
+        } else {
             hi--;
         }
     }
-    cout<<n-cnt<<"\n";
+    cout << n - cnt << "\n";
     return 0;
 }
-
